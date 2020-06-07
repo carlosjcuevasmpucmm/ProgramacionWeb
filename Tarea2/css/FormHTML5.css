@@ -1,0 +1,11 @@
+body { 
+    background-color: #c0fff0;
+}
+
+label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 10pt;
+    color: #205020;
+}
