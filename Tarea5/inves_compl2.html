@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undefined y null</title>
+</head>
+<body>
+
+    <!--
+        undefined is a primitive value automatically assigned to variables that 
+        have just been declared, 
+        or to formal arguments for which there are no actual arguments.
+
+        Las varibles no definidas son dos: 
+            -Declaradas y no inicializada
+            -Argumentos no inicializados
+
+        Null es la uasencia de valor, puesto deliberadamente.
+        Null no es observable por typeof, y evalua a false en booleans
+
+    -->
+
+    <button onclick="prue()"> Diparame con click</button>
+
+    <script>
+        function prue(z){
+            var x = 2;
+            var y;
+            var l = [];
+            alert("Inicializada: " + typeof(x));
+            alert("No nicializada: " + typeof(y));
+            alert("Parametro sin argumento: " + typeof(z));
+            if (l[0]==null){
+            alert("El vacio, es un null en escencia. ")
+            }
+            if(y ==null){
+                alert("Undefined es muy similar a null, son casi iguales")
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>

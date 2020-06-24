@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Unobstructive Javascript</title>
+
+  
+  </head>
+  <body>
+
+    <!--
+
+        Codigo que agrega funcionalidad, no es pieza clave del funcionamieno correcto de la pagia.
+        Css y Html existen bien sin el. Solo anade utilidad.
+        El server manejara situciones que el javascript no cumpla, como en casos de validacion.
+        Pero en general el javascript debe ser:
+
+        stackoverflow: "Incognito", parafraseo
+        Separacion de Html y Css
+        Modular: Cada funcionalidad no sabe de la otra si no es necesario
+        No rompe la UX: Menor calidad de experiencia pero no un desastre si el js no esta habitlitado
+        Clean code
+
+        Wikipedia...some from a book which seems important to good practices:
+        To separate JavaScript from HTML markup,
+         as well as keeping modules of JavaScript independent of other modules.
+        content should be available without all or any of the JavaScript running successfully.
+        should not degrade the accessibility of the HTML, and ideally should improve it
+        
+
+
+
+
+
+
+    -->
+    <h1>Form validation example</h1>
+ 
+    <form onsubmit="return validate()">
+    
+        <div>
+        <label for="name">Enter your name:</label>
+        <input type="text" name="name" id="name">
+    
+    
+        <label for="age">Enter your age:</label>
+        <input type="number" name="age" id="age">
+    
+    
+        <input type="submit">
+      </div>
+    
+    
+    </form>
+    <!--
+
+        Existe solo y aparte de html y css
+        Si no funciona, igual todo sigue en funcionamiento
+        Esta claramente separado y selectivo en lo que realiza.
+    -->
+
+    <script src="inves_compl1-validate.js" >
+
+        
+    </script>
+
+
+
+
+  </body>
+</html>
