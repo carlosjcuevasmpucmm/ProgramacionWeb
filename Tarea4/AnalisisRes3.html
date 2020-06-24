@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+
+    Numero 1
+    <input type="text" id="numero1" name="numero1"
+        title="Numero positivo, no repetir en otros campos"><br><br>
+
+    Numero 2
+    <input type="text" id="numero2" name="numero2"
+        title="Numero positivo, no repetir en otros campos"><br><br>
+
+
+
+        <button onclick="myFunction()">Averigua</button>
+
+    
+    
+
+    
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("numero1").value;
+            var y = document.getElementById("numero2").value;
+            
+
+            if (x =="" || y == ""){
+                return alert("Digita un numero");
+            }
+
+
+            if (isNaN(x) || isNaN(y) ){
+                return alert("Solo numeros")
+            }
+
+            
+
+            if( x > y){
+                
+                s = (+x) + (+y);
+                r = x - y;
+
+                alert("La suma es " + s + " La resta es " +  r );
+            }
+            else {
+
+                m =  x * y;
+                d = x / y;
+
+                alert("La multiplicacion es " + m + " La division es " + d);
+            }
+
+            
+
+
+            
+        }
+    </script>
+
+
+
+
+
+
+
+    <script src="" async defer></script>
+</body>
+
+</html>

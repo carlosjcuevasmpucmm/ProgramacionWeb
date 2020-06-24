@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+
+    Numero 1
+    <input type="text" id="numero1" name="numero1"
+        title="Numero positivo, no repetir en otros campos"><br><br>
+
+    Numero 2
+    <input type="text" id="numero2" name="numero2"
+        title="Numero positivo, no repetir en otros campos"><br><br>
+
+    Numero 3
+    <input type="text" id="numero3" name="numero3"
+        title="Numero positivo, no repetir en otros campos"><br><br>
+
+        <button onclick="myFunction()">Averigua</button>
+
+    
+    
+
+    
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("numero1").value;
+            var y = document.getElementById("numero2").value;
+            var z = document.getElementById("numero3").value;
+
+            var arr = [x,y,z];
+
+            
+
+            
+            
+            //Arreglo aprendido luego de crear la mayoria de validaciones, so se quedan sin aprovechar arreglo en esta ocasion.
+
+            
+            for (i = 0; i<arr.length; i++) {
+                 if (arr[i]==""){
+                     return alert("Digita un numero");
+                 }
+            }
+
+
+            if (isNaN(x) || isNaN(y) || isNaN(z)){
+                return alert("Solo numeros")
+            }
+
+            
+            if (x == y || x==z || z==y){
+
+                return alert("No se aceptan numeros iguales");
+            }
+
+            
+            if (x < 0 || y<0 || z<0){
+
+                return alert("Solo numeros positivos");
+            }
+
+            alert(
+                "El menor es " + Math.min(...arr) + ". " +
+                "El mayor es " + Math.max(...arr)
+            
+            
+            ) ;   
+            
+
+
+            
+        }
+    </script>
+
+
+
+
+
+
+
+    <script src="" async defer></script>
+</body>
+
+</html>

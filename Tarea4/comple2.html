@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie12 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie12 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie12"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+    <style>
+        body {
+            
+            font-size: 20px;
+        
+
+
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="todo">
+
+        Introduce el triangulo numero <span id="triangle_n">1</span>
+        <br>
+        Lado 1:
+        <input type="text" id="l_1"><br>
+        Lado 2:
+        <input type="text" id="l_2"><br>
+        Lado 3:
+        <input type="text" id="l_3"><br>
+
+        <button onclick="getTriangle()">Tomar triangulo</button>
+
+        <script>
+            function getTriangle() {
+
+                //Get them triangle values
+                var x = document.getElementById("l_1").value;
+                var y = document.getElementById("l_2").value;
+                var z = document.getElementById("l_3").value;
+
+
+                //Check if its the first triangle
+                if (typeof arr == 'undefined' || arr.length % 12 == 0) {
+
+                    arr = [];
+                }
+
+                //Check if its the last triangle so reset, confirm is not strat of program, dunnowhhy but works
+                if (arr.length % 12 == 0 && arr != 'undefined') {
+                    arr = [];
+                }
+                //Activo, entrando los lados
+                arr.push(x);
+                arr.push(y);
+                arr.push(z);
+
+
+                if (typeof n == 'undefined') {
+                    n = 1;
+                }
+
+                n++;
+
+
+
+
+
+                //Uff, local storage. El codigo sabe, no hay que llamarlo, arr se preserva, aun con key de otro nombre.
+                window.localStorage.setItem('arr', JSON.stringify(arr));
+
+                //Next triangle please 
+
+                document.getElementById("triangle_n").innerHTML = n;
+                //Reset numbering of triangles
+                if (n == 4 && n != 'undefined') {
+                    n = 0;
+                }
+
+
+                //Lo siguiente es si ya se entrato 4 triangulos
+
+
+
+                //Do the side calculation at the end of 4 triangles entered
+                if (arr.length % 12 == 0) {
+
+                    //Contador de lados
+                    var t = 0;
+
+                    //Contadores de quien gana
+                    var e = 0;
+                    var is = 0;
+                    var eq = 0;
+                    var empw = 0;
+                    var empl = 0;
+
+                    //GO thorugh array. Al final ya printie info de all y ya se quien gano.
+                    for (i = 0; i < arr.length; i++) {
+
+                        //Verigica que solo se compare si se esta antes de la penultima i. Sino, error. CLasico
+                        if (+i + 1 < (arr.length)) {
+
+                            //Si el actual y el siguiente son identicos, o el primero es igual al ultimo
+                            //y no se esta al final de un triangulo (i =2, asi que no mezclar triangulos), dale. 
+                            if (arr[i] == arr[+i + 1] && ((+i + 1) % 3 != 0)) {
+
+
+                                
+                                t++;
+
+                            }
+                            else 
+                            if ( i % 3 == 0 && arr[i] == arr[i+2] ){
+                                
+
+                                t++;
+    
+                                }
+
+                            
+                            
+                        }
+
+                        //Cada vez que se sepa un triangulo, tiralo a parantalla y anota 1 score
+                        if ((+i + 1) % 3 == 0) {
+
+                            //This 3 is not changable, no escalabitliy with more triangle added
+
+                            switch (t) {
+                                case 0:
+                                    alert("El triangulo  " + (i + 1) / 3 + " es escaleno");
+
+                                    e++;
+                                    break;
+                                case 1:
+                                    alert("El triangulo  " + (i + 1) / 3 + " es isosceles");
+                                    is++;
+
+                                    break;
+                                case 2:
+                                    alert("El triangulo  " + (i + 1) / 3 + " es equilatero");
+                                    eq++;
+                                    break;
+                            }
+                            //Reinicia el contador de lado iguales, ya que va el proximo trianglo, prox 3 valores.
+                            t = 0;
+
+                        }
+
+                    }
+
+                    arr = [+e, +is, +eq];
+
+                    var arr2 =[];
+                    
+
+                    for (i = 0; i < arr.length; i++){
+                        
+                        if (arr[i]!=0){
+                            
+                            arr2.push(arr[i]);
+                        }
+                    }
+
+                    var winner = Math.max(...arr2);
+                    var looser = Math.min(...arr2);
+
+                    
+                    
+
+
+                    //Winner
+                    if (e == winner) {
+                        alert("winner es escaleno");
+                        empw++;
+                    }
+
+                    if (is == winner) {
+                        alert("winner es isoceles");
+                        empw++;
+                    }
+
+                    if (eq == winner) {
+                        alert("winner es equilatero")
+                        empw++;
+                    }
+
+                    if (empw > 1) {
+                        alert("Hubo empate de ganadores!");
+                    }
+
+                    if (looser==0){
+                        return alert("Sin perdedores");
+                    }
+
+                    
+                    if (e == looser) {
+                        alert("looser es escaleno");
+                        empl++;
+                    }
+
+                    if (is == looser) {
+                        alert("looser es isoceles");
+                        empl++;
+                    }
+
+                    if (eq == looser) {
+                        alert("Looser es equilatero")
+                        empl++;
+                    }
+
+                    if (empl > 1) {
+                        alert("Hubo empate de perdedores!");
+                    }
+
+                    if ( winner == looser){
+                         alert("Empate total")
+                    }
+
+
+
+
+
+
+                    //No se bien pero limpia todo
+                    window.localStorage.removeItem('arr');
+                    arr = [];
+
+
+                }
+            }
+        </script>
+
+
+
+
+
+        <script src="" async defer></script>
+    </div>
+</body>
+
+</html>
